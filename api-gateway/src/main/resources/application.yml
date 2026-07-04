@@ -1,0 +1,26 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: api-gateway
+
+services:
+  query-expansion:
+    base-url: ${QUERY_EXPANSION_SERVICE_URL:http://localhost:8081}
+  youtube:
+    base-url: ${YOUTUBE_SERVICE_URL:http://localhost:8082}
+  affiliate:
+    base-url: ${AFFILIATE_SERVICE_URL:http://localhost:8083}
+  image:
+    base-url: ${IMAGE_SERVICE_URL:http://localhost:8084}
+
+affiliate:
+  amazon:
+    tag: ${AMAZON_AFFILIATE_TAG:your-tag-21}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
